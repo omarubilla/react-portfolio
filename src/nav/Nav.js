@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Link, useLocation} from "react-router-dom";
+import React from 'react';
+import { Link, useLocation } from "react-router-dom";
 import astronautHelmet from "../assets/astronaut-helmet.png";
 import deadEye from "../assets/dead-eye.png";
 import stack from "../assets/stack.png";
@@ -43,46 +43,27 @@ export default function Nav() {
     const PageTitle = getPageTitle();
 
     const isCurrentPage = (navClass) => {
-        return navClass === navPositionClass
+        return navClass === NavPositionClass;
     };
 
     const renderNavLink = (to, imgSrc, altText, navClass) => {
         const isCurrent = isCurrentPage(navClass);
-        const linkClass = isCurrent ? "nav-link current" : "nav-link"
+        const linkClass = isCurrent ? "nav-link current" : "nav-link";
 
         return (
             <Link to={to} className={linkClass}>
-                    <img src={imgSrc} alt ={altText} />
-                    {isCurrent && <h1 className="page-title">{pageTitle}
-                    </h1>}
+                <img src={imgSrc} alt={altText} />
+                {isCurrent && <h1 className="page-title">{PageTitle}</h1>}
             </Link>
         );
     };
 
     return (
-        <nav className={`nav ${navPositionClass}`}>
-            {renderNavLink(
-                "/",
-                astronautHelmet,
-                "astronaut helmet icon",
-                "nav-about"
-            )}
-            {renderNavLink(
-                "/skill",
-                deadEye,
-                "deadEye icon",
-                "nav-skills"
-            )}{renderNavLink(
-                "/projects",
-                stack,
-                "astronaut helmet icon",
-                "nav-projects"
-            )}{renderNavLink(
-                "/contact",
-                envelope,
-                "envelope icon",
-                "nav-contact"
-            )}
+        <nav className={`nav ${NavPositionClass}`}>
+            {renderNavLink("/", astronautHelmet, "astronaut helmet icon", "nav-about")}
+            {renderNavLink("/skills", deadEye, "deadEye icon", "nav-skills")}
+            {renderNavLink("/projects", stack, "stack icon", "nav-projects")}
+            {renderNavLink("/contact", envelope, "envelope icon", "nav-contact")}
         </nav>
-    )
+    );
 }
