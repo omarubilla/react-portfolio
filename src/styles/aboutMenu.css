@@ -35,6 +35,25 @@
     cursor: pointer;
 }
 
+.icon-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.school-logo {
+    width: 65px; /* Adjust size as needed */
+    height: 50px;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.icon-links img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
 .active-subheading {
     cursor: default;
 }

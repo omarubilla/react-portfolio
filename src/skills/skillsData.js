@@ -74,6 +74,10 @@ const skills = {
             title: "OpenCV",
             level: 6,
         },
+        {
+            title: "Flask",
+            level: 6,
+        },
     ]
 };
 

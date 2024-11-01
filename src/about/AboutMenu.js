@@ -6,6 +6,15 @@ import personalIcon from "../assets/moebius-triangle.png";
 import educationIcon from "../assets/upgrade.png";
 import careerIcon from "../assets/triple-corn.png";
 import "../styles/aboutMenu.css";
+import linkedinIcon from "../assets/linkedInIcon.png";
+import githubIcon from "../assets/githubIcon.png";
+import webIcon from "../assets/omni_app_icon.png";
+import youtubeIcon from "../assets/youtubeIcon.png";
+import csumbLogo from "../assets/csumbLogo.png";
+import calLogo from "../assets/calLogo.png"; 
+
+
+
 
 
 export default class AboutMenu extends Component {
@@ -55,6 +64,11 @@ export default class AboutMenu extends Component {
                     <div className="icon-title-container">
                         <img src={activeMenuIcon} alt={activeMenuTitle} className="icon" />
                         <h3>{activeMenuTitle}</h3>
+
+                        {/* Conditionally render the school logo next to the title if activeMenuItem is EDUCATION */}
+                        {activeMenuTitle === "EDUCATION" && (
+                            <img src={calLogo} alt="School Logo" className="school-logo" />
+                        )}
                     </div>
                     {subheadings.map((subheading, index) => (
                         <AboutSubheading
@@ -66,6 +80,23 @@ export default class AboutMenu extends Component {
                             menuItem={activeMenuItem}
                         />
                     ))}
+                    {/* Conditionally render icons if the active menu item is "PERSONAL" */}
+                    {activeMenuTitle === "PERSONAL" && (
+                        <div className="icon-links">
+                            <a href="https://www.omniabx.com" target="_blank" rel="noopener noreferrer">
+                                <img src={webIcon} alt="Website" />
+                            </a>
+                            <a href="https://github.com/omarubilla" target="_blank" rel="noopener noreferrer">
+                                <img src={githubIcon} alt="GitHub" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/ubilla-kevin-omni/" target="_blank" rel="noopener noreferrer">
+                                <img src={linkedinIcon} alt="LinkedIn" />
+                            </a>
+                            <a href="https://www.youtube.com/@omarubilla7748/videos" target="_blank" rel="noopener noreferrer">
+                                <img src={youtubeIcon} alt="Youtube" />
+                            </a>
+                        </div>
+                    )}
                 </div>
             </>
         );
